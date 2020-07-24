@@ -14,7 +14,7 @@ class Publics extends Request
      * */
     public function ping(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v2/ping';
+        $this->path='/ping';
         $this->data=$data;
         return $this->exec();
     }
@@ -24,7 +24,7 @@ class Publics extends Request
      * */
     public function one(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v2/one';
+        $this->path='/one';
         $this->data=$data;
         return $this->exec();
     }
@@ -34,7 +34,7 @@ class Publics extends Request
      * */
     public function tickers(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v2/tickers';
+        $this->path='/tickers';
         $this->data=$data;
         return $this->exec();
     }
@@ -44,7 +44,7 @@ class Publics extends Request
      * */
     public function depth(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v2/markets/'.$data['market_id'].'/depth';
+        $this->path='/markets/'.$data['market_id'].'/depth';
         $this->data=$data;
         return $this->exec();
     }
@@ -54,7 +54,7 @@ class Publics extends Request
      * */
     public function trades(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v2/markets/'.$data['market_id'].'/trades';
+        $this->path='/markets/'.$data['market_id'].'/trades';
         $this->data=$data;
         return $this->exec();
     }
@@ -64,7 +64,7 @@ class Publics extends Request
      * */
     public function markets(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v2/markets';
+        $this->path='/markets';
         $this->data=$data;
         return $this->exec();
     }

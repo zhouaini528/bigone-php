@@ -1,19 +1,16 @@
 <?php
-
 /**
  * @author lin <465382251@qq.com>
  * */
 
-use Lin\Gate\GateContract;
+use Lin\Bigone\BigoneSpotV2;
 
 require __DIR__ .'../../../vendor/autoload.php';
 
-include 'key_secret.php';
-
-$gate=new GateContract($key,$secret);
+$bigone=new BigoneSpotV2();
 
 //You can set special needs
-$gate->setOptions([
+$bigone->setOptions([
     //Set the request timeout to 60 seconds by default
     'timeout'=>10,
 
@@ -30,30 +27,16 @@ $gate->setOptions([
 ]);
 
 try {
-    $result=$gate->my()->getTrades([
-        'settle'=>'btc'
-    ]);
+    $result=$bigone->publics()->ping();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-
+die;
 try {
-    $result=$gate->my()->getLiquidates([
-        'settle'=>'btc'
-    ]);
+    $result=$bigone->publics()->one();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-
-try {
-    $result=$gate->my()->getPositionClose([
-        'settle'=>'btc'
-    ]);
-    print_r($result);
-}catch (\Exception $e){
-    print_r(json_decode($e->getMessage(),true));
-}
-
 ?>

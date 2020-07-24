@@ -3,7 +3,7 @@
  * @author lin <465382251@qq.com>
  * */
 
-namespace Lin\Bigone\Api\SpotV2;
+namespace Lin\Bigone\Api\Spot;
 
 use Lin\Bigone\Request;
 

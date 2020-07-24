@@ -1,22 +1,21 @@
 <?php
-
 /**
  * @author lin <465382251@qq.com>
  * */
 
-use Lin\Gate\GateSpot;
+use Lin\Bigone\BigoneSpotV2;
 
 require __DIR__ .'../../../vendor/autoload.php';
 
 include 'key_secret.php';
 
-$gate=new GateSpot($key,$secret);
+$bigone=new BigoneSpotV2($key,$secret);
 
 //You can set special needs
-$gate->setOptions([
+$bigone->setOptions([
     //Set the request timeout to 60 seconds by default
     'timeout'=>10,
-    
+
     //If you are developing locally and need an agent, you can set this
     //'proxy'=>true,
     //More flexible Settings
@@ -29,13 +28,11 @@ $gate->setOptions([
     //'verify'=>false,
 ]);
 
+
 try {
-    $result=$gate->my()->getTrades([
-        'currency_pair'=>'BTC_USDT',
-    ]);
+    $result=$bigone->publics()->post();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-
 ?>

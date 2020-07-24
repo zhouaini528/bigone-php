@@ -1,9 +1,9 @@
 {
-    "name": "linwj/gate",
+    "name": "linwj/bigone",
     "type": "library",
-    "description": "Gate API Like the official document interface, Support for arbitrary extension.",
+    "description": "Bigone API Like the official document interface, Support for arbitrary extension.",
     "license": "MIT",
-    "keywords": ["gate","coinbase","bitmex", "binance", "okex", "huobi","kucoin","kumex"],
+    "keywords": ["Bigone","gate","coinbase","bitmex", "binance", "okex", "huobi","kucoin","kumex"],
     "authors": [
         {
             "name": "linwenjun",
@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Lin\\Gate\\": "./src/"
+            "Lin\\Bigone\\": "./src/"
         }
     },
     "require": {

@@ -37,7 +37,6 @@ class Request
         $this->host=$data['host'] ?? '';
 
         $this->options=$data['options'] ?? [];
-        $this->vision=$data['vision'] ?? '';
     }
 
     /**
@@ -79,7 +78,8 @@ class Request
         $h=base64_encode(json_encode($header));
         $p=base64_encode(json_encode($payload));
 
-        $this->signature = base64_encode(hash_hmac('sha256', $h.'.'.$p, $this->secret,true));
+        $sha256 = base64_encode(hash_hmac('sha256', $h.'.'.$p, $this->secret,true));
+        $this->signature = $h.'.'.$p .'.'.$sha256;
     }
 
     /**
@@ -122,6 +122,9 @@ class Request
 
         if($this->type=='POST') $this->options['body']=json_encode($this->data);
         else $url.='?'.http_build_query($this->data);
+
+        /*print_r($this->options);
+        echo $url;*/
 
         $response = $client->request($this->type, $url, $this->options);
 
