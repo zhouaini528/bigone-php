@@ -1,7 +1,7 @@
 <?php
-namespace Lin\Gate\Exceptions;
+namespace Lin\Bigone\Exceptions;
 
 class Exception extends \Exception
 {
-    
+
 }

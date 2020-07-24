@@ -1,6 +1,6 @@
 ### 建议优先阅读官方文档
 
-官方文档地址 [API2](https://open.bigonezh.com/docs/V2/authentication.html) [API4](https://open.bigonezh.com/docs/authentication.html)
+官方文档地址 [API3](https://open.bigonezh.com/docs/authentication.html)
 
 所有的接口方式初始化与bigone提供的接口方式一样，详细请看[src/api](https://github.com/zhouaini528/bigone-php/tree/master/src/Api)
 
@@ -36,7 +36,7 @@
 
 [Gate](https://github.com/zhouaini528/gate-php)   支持 V2/V4
 
-[Bigone](https://github.com/zhouaini528/bigone-php)   支持 V2/V3
+[Bigone](https://github.com/zhouaini528/bigone-php)   
 
 #### 安装方式
 ```

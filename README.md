@@ -1,6 +1,6 @@
 ### It is recommended that you use the test server first
 
-The official address [API2](https://open.bigonezh.com/docs/V2/authentication.html) [API4](https://open.bigonezh.com/docs/authentication.html)
+The official address [API3](https://open.bigonezh.com/docs/authentication.html)
 
 All interface methods are initialized the same as those provided by Bigone. See details [src/api](https://github.com/zhouaini528/bigone-php/tree/master/src/Api)
 
@@ -36,7 +36,7 @@ Most of the interface is now complete, and the user can continue to extend it ba
 
 [Gate](https://github.com/zhouaini528/gate-php)   Support V2/V4
 
-[Bigone](https://github.com/zhouaini528/bigone-php)   Support V2/V3
+[Bigone](https://github.com/zhouaini528/bigone-php)   
 
 #### Installation
 ```
