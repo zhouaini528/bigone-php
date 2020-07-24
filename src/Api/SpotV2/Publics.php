@@ -10,112 +10,63 @@ use Lin\Bigone\Request;
 class Publics extends Request
 {
     /**
-     * GET: https://data.Bigoneio.la/api2/1/pairs
+     *GET /ping
      * */
-    public function pairs(array $data=[]){
+    public function ping(array $data=[]){
         $this->type='GET';
-        $this->path='/api2/1/pairs';
+        $this->path='/api/v2/ping';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET: https://data.Bigoneio.la/api2/1/marketinfo
+     *GET /one
      * */
-    public function marketinfo(array $data=[]){
+    public function one(array $data=[]){
         $this->type='GET';
-        $this->path='/api2/1/marketinfo';
+        $this->path='/api/v2/one';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET: https://data.Bigoneio.la/api2/1/coininfo
-     * */
-    public function coininfo(array $data=[]){
-        $this->type='GET';
-        $this->path='/api2/1/coininfo';
-        $this->data=$data;
-        return $this->exec();
-    }
-
-    /**
-     *GET: https://data.Bigoneio.la/api2/1/marketlist
-     * */
-    public function marketlist(array $data=[]){
-        $this->type='GET';
-        $this->path='/api2/1/marketlist';
-        $this->data=$data;
-        return $this->exec();
-    }
-
-    /**
-     *GET: https://data.Bigoneio.la/api2/1/tickers
+     *GET /tickers
      * */
     public function tickers(array $data=[]){
         $this->type='GET';
-        $this->path='/api2/1/tickers';
+        $this->path='/api/v2/tickers';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET: https://data.Bigoneio.la/api2/1/ticker/[CURR_A]_[CURR_B]
+     *GET /markets/{market_id}/depth
      * */
-    public function ticker(array $data=[]){
+    public function depth(array $data=[]){
         $this->type='GET';
-        $this->path='https://data.Bigoneio.la/api2/1/ticker/'.$data['curr_a'].'_'.$data['curr_b'];
+        $this->path='/api/v2/markets/'.$data['market_id'].'/depth';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET: https://data.Bigoneio.la/api2/1/orderBook/[CURR_A]_[CURR_B]
+     *GET /markets/{market_id}/trades
      * */
-    public function orderBook(array $data=[]){
+    public function trades(array $data=[]){
         $this->type='GET';
-        $this->path='/api2/1/orderBook/'.$data['curr_a'].'_'.$data['curr_b'];
+        $this->path='/api/v2/markets/'.$data['market_id'].'/trades';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET: https://data.Bigoneio.la/api2/1/tradeHistory/[CURR_A]_[CURR_B]
+     *GET /markets
      * */
-    public function tradeHistory(array $data=[]){
+    public function markets(array $data=[]){
         $this->type='GET';
-        $this->path='/api2/1/tradeHistory/'.$data['curr_a'].'_'.$data['curr_b'];
+        $this->path='/api/v2/markets';
         $this->data=$data;
         return $this->exec();
     }
 
-    /**
-     *GET: https://data.Bigoneio.la/api2/1/candlestick2/[CURR_A]_[CURR_B]?group_sec=[GROUP_SEC]&range_hour=[RANGE_HOUR]
-     * */
-    public function candlestick2(array $data=[]){
-        $this->type='GET';
-        $this->path='/api2/1/candlestick2/'.$data['curr_a'].'_'.$data['curr_b'];
-        $this->data=$data;
-        return $this->exec();
-    }
-
-    /**
-     *GET: https://data.Bigoneio.la/api2/1/orderBooks_c2c
-     * */
-    public function orderBooksC2c(array $data=[]){
-        $this->type='GET';
-        $this->path='/api2/1/orderBooks_c2c';
-        $this->data=$data;
-        return $this->exec();
-    }
-
-    /**
-     *GET: https://data.Bigoneio.la/api2/1/orderBook_c2c/[CURR_A]_[CURR_B]
-     * */
-    public function orderBookC2c(array $data=[]){
-        $this->type='GET';
-        $this->path='/api2/1/orderBook_c2c/'.$data['curr_a'].'_'.$data['curr_b'];
-        $this->data=$data;
-        return $this->exec();
-    }
 }

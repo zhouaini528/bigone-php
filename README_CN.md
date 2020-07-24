@@ -45,8 +45,7 @@ composer require linwj/gate
 
 支持更多的请求设置
 ```php
-$bigone=new Bigone();//默认API V4
-$bigone=new BigoneV2();//默认API V2
+$bigone=new BigoneSpot();
 
 //You can set special needs
 $bigone->setOptions([

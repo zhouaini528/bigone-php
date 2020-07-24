@@ -45,8 +45,7 @@ composer require linwj/gate
 
 Support for more request Settings
 ```php
-$gate=new Bigone();//defult api v4
-$gate=new BigoneV2();//defult api v2
+$gate=new BigoneSpot();
 
 //You can set special needs
 $gate->setOptions([
