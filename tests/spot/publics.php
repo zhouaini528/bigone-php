@@ -3,11 +3,11 @@
  * @author lin <465382251@qq.com>
  * */
 
-use Lin\Bigone\BigoneSpotV2;
+use Lin\Bigone\BigoneSpot;
 
 require __DIR__ .'../../../vendor/autoload.php';
 
-$bigone=new BigoneSpotV2();
+$bigone=new BigoneSpot();
 
 //You can set special needs
 $bigone->setOptions([
@@ -32,9 +32,39 @@ try {
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-die;
+
 try {
-    $result=$bigone->publics()->one();
+    $result=$bigone->publics()->ticker([
+        'asset_pair_name'=>'BTC-USDT'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->depth([
+        'asset_pair_name'=>'BTC-USDT'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->trades([
+        'asset_pair_name'=>'BTC-USDT'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->candles([
+        'asset_pair_name'=>'BTC-USDT',
+        'period'=>'day1'
+    ]);
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));

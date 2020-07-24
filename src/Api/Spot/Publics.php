@@ -3,7 +3,7 @@
  * @author lin <465382251@qq.com>
  * */
 
-namespace Lin\Bigone\Api\SpotV2;
+namespace Lin\Bigone\Api\Spot;
 
 use Lin\Bigone\Request;
 
@@ -20,53 +20,52 @@ class Publics extends Request
     }
 
     /**
-     *GET /one
+     *GET /asset_pairs/{asset_pair_name}/ticker
      * */
-    public function one(array $data=[]){
+    public function ticker(array $data=[]){
         $this->type='GET';
-        $this->path='/one';
+        $this->path='/asset_pairs/'.$data['asset_pair_name'].'/ticker';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /tickers
-     * */
-    public function tickers(array $data=[]){
-        $this->type='GET';
-        $this->path='/tickers';
-        $this->data=$data;
-        return $this->exec();
-    }
-
-    /**
-     *GET /markets/{market_id}/depth
+     *GET /asset_pairs/{asset_pair_name}/depth
      * */
     public function depth(array $data=[]){
         $this->type='GET';
-        $this->path='/markets/'.$data['market_id'].'/depth';
+        $this->path='/asset_pairs/'.$data['asset_pair_name'].'/depth';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /markets/{market_id}/trades
+     *GET /asset_pairs/{asset_pair_name}/trades
      * */
     public function trades(array $data=[]){
         $this->type='GET';
-        $this->path='/markets/'.$data['market_id'].'/trades';
+        $this->path='/asset_pairs/'.$data['asset_pair_name'].'/trades';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /markets
+     *GET /asset_pairs/{asset_pair_name}/candles
      * */
-    public function markets(array $data=[]){
+    public function candles(array $data=[]){
         $this->type='GET';
-        $this->path='/markets';
+        $this->path='/asset_pairs/'.$data['asset_pair_name'].'/candles';
         $this->data=$data;
         return $this->exec();
     }
 
+    /**
+     *GET /asset_pairs
+     * */
+    public function assetPairs(array $data=[]){
+        $this->type='GET';
+        $this->path='/asset_pairs';
+        $this->data=$data;
+        return $this->exec();
+    }
 }

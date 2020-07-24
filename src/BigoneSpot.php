@@ -5,11 +5,9 @@
 
 namespace Lin\Bigone;
 
-use Lin\Bigone\Api\Spot\Account;
-use Lin\Bigone\Api\Spot\Currency;
-use Lin\Bigone\Api\Spot\Market;
-use Lin\Bigone\Api\Spot\My;
-use Lin\Bigone\Api\Spot\Order;
+use Lin\Bigone\Api\Spot\Privates;
+use Lin\Bigone\Api\Spot\Publics;
+
 
 class BigoneSpot
 {
@@ -20,7 +18,7 @@ class BigoneSpot
 
     protected $options=[];
 
-    function __construct(string $key='',string $secret='',string $host='https://api.Bigoneio.ws'){
+    function __construct(string $key='',string $secret='',string $host='https://big.one/api/v3'){
         $this->key=$key;
         $this->secret=$secret;
         $this->host=$host;
@@ -35,7 +33,6 @@ class BigoneSpot
             'secret'=>$this->secret,
             'host'=>$this->host,
             'options'=>$this->options,
-            'vision'=>'v4',
         ];
     }
 
@@ -49,35 +46,14 @@ class BigoneSpot
     /**
      *
      * */
-    function account(){
-        return new Account($this->init());
+    function privates(){
+        return new Privates($this->init());
     }
 
     /**
      *
      * */
-    function currency(){
-        return new Currency($this->init());
-    }
-
-    /**
-     *
-     * */
-    function market(){
-        return new Market($this->init());
-    }
-
-    /**
-     *
-     * */
-    function my(){
-        return new My($this->init());
-    }
-
-    /**
-     *
-     * */
-    function order(){
-        return new Order($this->init());
+    function publics(){
+        return new Publics($this->init());
     }
 }

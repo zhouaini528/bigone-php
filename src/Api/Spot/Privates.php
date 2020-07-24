@@ -10,63 +10,132 @@ use Lin\Bigone\Request;
 class Privates extends Request
 {
     /**
-     *GET /ping
+     *GET /viewer/accounts
      * */
-    public function ping(array $data=[]){
+    public function getAccounts(array $data=[]){
         $this->type='GET';
-        $this->path='/ping';
+        $this->path='/viewer/accounts';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /one
+     *GET /viewer/accounts/{asset_symbol}
      * */
-    public function one(array $data=[]){
+    public function getAccount(array $data=[]){
         $this->type='GET';
-        $this->path='/one';
+        $this->path='/viewer/accounts/'.$data['asset_symbol'];
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /tickers
+     *GET /viewer/orders
      * */
-    public function tickers(array $data=[]){
+    public function getOrders(array $data=[]){
         $this->type='GET';
-        $this->path='/tickers';
+        $this->path='/viewer/orders';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /markets/{market_id}/depth
+     *GET /viewer/orders/{id}
      * */
-    public function depth(array $data=[]){
+    public function getOrder(array $data=[]){
         $this->type='GET';
-        $this->path='/markets/'.$data['market_id'].'/depth';
+        $this->path='/viewer/orders/'.$data['id'];
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /markets/{market_id}/trades
+     *POST /viewer/orders
      * */
-    public function trades(array $data=[]){
-        $this->type='GET';
-        $this->path='/markets/'.$data['market_id'].'/trades';
+    public function postOrders(array $data=[]){
+        $this->type='POST';
+        $this->path='/viewer/orders';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /markets
+     *POST /viewer/orders/multi
      * */
-    public function markets(array $data=[]){
-        $this->type='GET';
-        $this->path='/markets';
+    public function postOrdersMulti(array $data=[]){
+        $this->type='POST';
+        $this->path='/viewer/orders/multi';
         $this->data=$data;
         return $this->exec();
     }
 
+    /**
+     *POST /viewer/orders/{id}/cancel
+     * */
+    public function postOrdersCancel(array $data=[]){
+        $this->type='POST';
+        $this->path='/viewer/orders/'.$data['id'].'/cancel';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
+     *POST /viewer/orders/cancel
+     * */
+    public function postOrdersCancels(array $data=[]){
+        $this->type='POST';
+        $this->path='/viewer/orders/cancel';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
+     *GET /viewer/trades
+     * */
+    public function postTrades(array $data=[]){
+        $this->type='GET';
+        $this->path='/viewer/trades';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
+     *GET /viewer/withdrawals
+     * */
+    public function getWithdrawals(array $data=[]){
+        $this->type='GET';
+        $this->path='/viewer/withdrawals';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
+     *POST /viewer/withdrawals
+     * */
+    public function postWithdrawals(array $data=[]){
+        $this->type='POST';
+        $this->path='/viewer/withdrawals';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
+     *GET /viewer/deposits
+     * */
+    public function getDeposits(array $data=[]){
+        $this->type='GET';
+        $this->path='/viewer/deposits';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
+     *GET  /viewer/assets/:asset_symbol/address
+     * */
+    public function getAssetsAddress(array $data=[]){
+        $this->type='GET';
+        $this->path='/viewer/assets/'.$data['asset_symbol'].'/address';
+        $this->data=$data;
+        return $this->exec();
+    }
 }

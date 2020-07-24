@@ -57,7 +57,7 @@ class Request
      * */
     protected function nonce(){
         $mt = explode(' ', microtime());
-        $this->nonce = $mt[1].substr($mt[0], 2, 6);
+        $this->nonce = $mt[1].substr($mt[0], 2, 6).'000';
     }
 
     /**
@@ -72,7 +72,7 @@ class Request
         $payload=[
             'type'=>'OpenAPIV2',
             'sub'=>$this->key,
-            'nonce'=>$this->nonce,
+            'nonce'=>$this->nonce
         ];
 
         $h=base64_encode(json_encode($header));
@@ -88,7 +88,7 @@ class Request
     protected function headers(){
         $this->headers= [
             'Content-Type'=>'application/json',
-            'Authorization'=>'Bearer '.$this->signature,
+            'Authorization'=>' Bearer '.$this->signature,
         ];
     }
 
@@ -122,10 +122,8 @@ class Request
 
         if($this->type=='POST') $this->options['body']=json_encode($this->data);
         else $url.='?'.http_build_query($this->data);
-
-        /*print_r($this->options);
-        echo $url;*/
-
+        echo $url.PHP_EOL;
+        print_r($this->options);
         $response = $client->request($this->type, $url, $this->options);
 
         return $response->getBody()->getContents();

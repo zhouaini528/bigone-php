@@ -3,13 +3,13 @@
  * @author lin <465382251@qq.com>
  * */
 
-use Lin\Bigone\BigoneSpotV2;
+use Lin\Bigone\BigoneSpot;
 
 require __DIR__ .'../../../vendor/autoload.php';
 
 include 'key_secret.php';
 
-$bigone=new BigoneSpotV2($key,$secret);
+$bigone=new BigoneSpot($key,$secret);
 
 //You can set special needs
 $bigone->setOptions([
@@ -27,12 +27,60 @@ $bigone->setOptions([
     //Close the certificate
     //'verify'=>false,
 ]);
-
-
+/*
+//Account
 try {
-    $result=$bigone->publics()->post();
+    $result=$bigone->privates()->getAccounts();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
+
+try {
+    $result=$bigone->privates()->getAccount([
+        'asset_symbol'=>'BTC'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+*/
+
+
+//Order
+/*try {
+    $result=$bigone->privates()->postOrders([
+        'asset_pair_name'=>'BTC-USDT',
+        'side'=>'BID',
+        'price'=>'1000',
+        'amount'=>'1',
+        'type'=>'LIMIT'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}*/
+
+
+try {
+    $result=$bigone->privates()->getOrders([
+        'asset_pair_name'=>'BTC-USDT',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+die;
+try {
+    $result=$bigone->privates()->getOrder([
+        'id'=>'xxxxxxxxxxx',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+
+
 ?>
