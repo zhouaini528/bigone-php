@@ -36,6 +36,7 @@ $bigone->setOptions([
     print_r(json_decode($e->getMessage(),true));
 }*/
 
+/*
 try {
     $result=$bigone->privates()->getAccount([
         'asset_symbol'=>'BTC'
@@ -44,15 +45,14 @@ try {
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-
-die;
+*/
 
 //Order
 try {
     $result=$bigone->privates()->postOrders([
         'asset_pair_name'=>'BTC-USDT',
         'side'=>'BID',
-        'price'=>'1000',
+        'price'=>'5000',
         'amount'=>'1',
         'type'=>'LIMIT'
     ]);
@@ -60,8 +60,6 @@ try {
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-die;
-
 
 try {
     $result=$bigone->privates()->getOrders([
@@ -72,7 +70,6 @@ try {
     print_r(json_decode($e->getMessage(),true));
 }
 
-die;
 try {
     $result=$bigone->privates()->getOrder([
         'id'=>'xxxxxxxxxxx',

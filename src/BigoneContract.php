@@ -23,7 +23,7 @@ class BigoneContract
 
     protected $options=[];
 
-    function __construct(string $key='',string $secret='',string $host='https://api.Bigoneio.ws'){
+    function __construct(string $key='',string $secret='',string $host='https://big.one'){
         $this->key=$key;
         $this->secret=$secret;
         $this->host=$host;
