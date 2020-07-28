@@ -27,14 +27,14 @@ $bigone->setOptions([
     //Close the certificate
     //'verify'=>false,
 ]);
-/*
+
 //Account
-try {
+/*try {
     $result=$bigone->privates()->getAccounts();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
-}
+}*/
 
 try {
     $result=$bigone->privates()->getAccount([
@@ -44,11 +44,11 @@ try {
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-*/
 
+die;
 
 //Order
-/*try {
+try {
     $result=$bigone->privates()->postOrders([
         'asset_pair_name'=>'BTC-USDT',
         'side'=>'BID',
@@ -59,7 +59,8 @@ try {
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
-}*/
+}
+die;
 
 
 try {

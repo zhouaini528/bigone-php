@@ -14,7 +14,7 @@ class Publics extends Request
      * */
     public function ping(array $data=[]){
         $this->type='GET';
-        $this->path='/ping';
+        $this->path='/api/v3/api/v3/ping';
         $this->data=$data;
         return $this->exec();
     }
@@ -24,7 +24,7 @@ class Publics extends Request
      * */
     public function ticker(array $data=[]){
         $this->type='GET';
-        $this->path='/asset_pairs/'.$data['asset_pair_name'].'/ticker';
+        $this->path='/api/v3/api/v3/asset_pairs/'.$data['asset_pair_name'].'/ticker';
         $this->data=$data;
         return $this->exec();
     }
@@ -34,7 +34,7 @@ class Publics extends Request
      * */
     public function depth(array $data=[]){
         $this->type='GET';
-        $this->path='/asset_pairs/'.$data['asset_pair_name'].'/depth';
+        $this->path='/api/v3/api/v3/asset_pairs/'.$data['asset_pair_name'].'/depth';
         $this->data=$data;
         return $this->exec();
     }
@@ -44,7 +44,7 @@ class Publics extends Request
      * */
     public function trades(array $data=[]){
         $this->type='GET';
-        $this->path='/asset_pairs/'.$data['asset_pair_name'].'/trades';
+        $this->path='/api/v3/api/v3/asset_pairs/'.$data['asset_pair_name'].'/trades';
         $this->data=$data;
         return $this->exec();
     }
@@ -54,7 +54,7 @@ class Publics extends Request
      * */
     public function candles(array $data=[]){
         $this->type='GET';
-        $this->path='/asset_pairs/'.$data['asset_pair_name'].'/candles';
+        $this->path='/api/v3/api/v3/asset_pairs/'.$data['asset_pair_name'].'/candles';
         $this->data=$data;
         return $this->exec();
     }
@@ -64,7 +64,7 @@ class Publics extends Request
      * */
     public function assetPairs(array $data=[]){
         $this->type='GET';
-        $this->path='/asset_pairs';
+        $this->path='/api/v3/api/v3/asset_pairs';
         $this->data=$data;
         return $this->exec();
     }

@@ -14,7 +14,7 @@ class Privates extends Request
      * */
     public function getAccounts(array $data=[]){
         $this->type='GET';
-        $this->path='/viewer/accounts';
+        $this->path='/api/v3/viewer/accounts';
         $this->data=$data;
         return $this->exec();
     }
@@ -24,7 +24,7 @@ class Privates extends Request
      * */
     public function getAccount(array $data=[]){
         $this->type='GET';
-        $this->path='/viewer/accounts/'.$data['asset_symbol'];
+        $this->path='/api/v3/viewer/accounts/'.$data['asset_symbol'];
         $this->data=$data;
         return $this->exec();
     }
@@ -34,7 +34,7 @@ class Privates extends Request
      * */
     public function getOrders(array $data=[]){
         $this->type='GET';
-        $this->path='/viewer/orders';
+        $this->path='/api/v3/viewer/orders';
         $this->data=$data;
         return $this->exec();
     }
@@ -44,7 +44,7 @@ class Privates extends Request
      * */
     public function getOrder(array $data=[]){
         $this->type='GET';
-        $this->path='/viewer/orders/'.$data['id'];
+        $this->path='/api/v3/viewer/orders/'.$data['id'];
         $this->data=$data;
         return $this->exec();
     }
@@ -54,7 +54,7 @@ class Privates extends Request
      * */
     public function postOrders(array $data=[]){
         $this->type='POST';
-        $this->path='/viewer/orders';
+        $this->path='/api/v3/viewer/orders';
         $this->data=$data;
         return $this->exec();
     }
@@ -64,7 +64,7 @@ class Privates extends Request
      * */
     public function postOrdersMulti(array $data=[]){
         $this->type='POST';
-        $this->path='/viewer/orders/multi';
+        $this->path='/api/v3/viewer/orders/multi';
         $this->data=$data;
         return $this->exec();
     }
@@ -74,7 +74,7 @@ class Privates extends Request
      * */
     public function postOrdersCancel(array $data=[]){
         $this->type='POST';
-        $this->path='/viewer/orders/'.$data['id'].'/cancel';
+        $this->path='/api/v3/viewer/orders/'.$data['id'].'/cancel';
         $this->data=$data;
         return $this->exec();
     }
@@ -84,7 +84,7 @@ class Privates extends Request
      * */
     public function postOrdersCancels(array $data=[]){
         $this->type='POST';
-        $this->path='/viewer/orders/cancel';
+        $this->path='/api/v3/viewer/orders/cancel';
         $this->data=$data;
         return $this->exec();
     }
@@ -94,7 +94,7 @@ class Privates extends Request
      * */
     public function postTrades(array $data=[]){
         $this->type='GET';
-        $this->path='/viewer/trades';
+        $this->path='/api/v3/viewer/trades';
         $this->data=$data;
         return $this->exec();
     }
@@ -104,7 +104,7 @@ class Privates extends Request
      * */
     public function getWithdrawals(array $data=[]){
         $this->type='GET';
-        $this->path='/viewer/withdrawals';
+        $this->path='/api/v3/viewer/withdrawals';
         $this->data=$data;
         return $this->exec();
     }
@@ -114,7 +114,7 @@ class Privates extends Request
      * */
     public function postWithdrawals(array $data=[]){
         $this->type='POST';
-        $this->path='/viewer/withdrawals';
+        $this->path='/api/v3/viewer/withdrawals';
         $this->data=$data;
         return $this->exec();
     }
@@ -124,7 +124,7 @@ class Privates extends Request
      * */
     public function getDeposits(array $data=[]){
         $this->type='GET';
-        $this->path='/viewer/deposits';
+        $this->path='/api/v3/viewer/deposits';
         $this->data=$data;
         return $this->exec();
     }
@@ -134,7 +134,7 @@ class Privates extends Request
      * */
     public function getAssetsAddress(array $data=[]){
         $this->type='GET';
-        $this->path='/viewer/assets/'.$data['asset_symbol'].'/address';
+        $this->path='/api/v3/viewer/assets/'.$data['asset_symbol'].'/address';
         $this->data=$data;
         return $this->exec();
     }

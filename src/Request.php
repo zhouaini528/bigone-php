@@ -122,8 +122,8 @@ class Request
 
         if($this->type=='POST') $this->options['body']=json_encode($this->data);
         else $url.='?'.http_build_query($this->data);
-        echo $url.PHP_EOL;
-        print_r($this->options);
+        /*echo $url.PHP_EOL;
+        print_r($this->options);*/
         $response = $client->request($this->type, $url, $this->options);
 
         return $response->getBody()->getContents();

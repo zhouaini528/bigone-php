@@ -18,7 +18,7 @@ class BigoneSpot
 
     protected $options=[];
 
-    function __construct(string $key='',string $secret='',string $host='https://big.one/api/v3'){
+    function __construct(string $key='',string $secret='',string $host='https://big.one'){
         $this->key=$key;
         $this->secret=$secret;
         $this->host=$host;
