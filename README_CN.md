@@ -221,6 +221,8 @@ try {
 ### 合约私有访问 API
 
 ```php
+$bigone=new BigoneContract($key,$secret);
+
 //Account
 try {
     $result=$bigone->privates()->getAccounts();

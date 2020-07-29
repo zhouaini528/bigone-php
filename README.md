@@ -221,6 +221,8 @@ try {
 ### Contract Privates API
 
 ```php
+$bigone=new BigoneContract($key,$secret);
+
 //Account
 try {
     $result=$bigone->privates()->getAccounts();
