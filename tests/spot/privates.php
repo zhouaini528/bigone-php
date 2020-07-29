@@ -29,14 +29,13 @@ $bigone->setOptions([
 ]);
 
 //Account
-/*try {
+try {
     $result=$bigone->privates()->getAccounts();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
-}*/
+}
 
-/*
 try {
     $result=$bigone->privates()->getAccount([
         'asset_symbol'=>'BTC'
@@ -45,7 +44,6 @@ try {
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-*/
 
 //Order
 try {
@@ -72,6 +70,15 @@ try {
 
 try {
     $result=$bigone->privates()->getOrder([
+        'id'=>'xxxxxxxxxxx',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->postOrdersCancel([
         'id'=>'xxxxxxxxxxx',
     ]);
     print_r($result);

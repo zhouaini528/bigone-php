@@ -9,6 +9,8 @@ use Lin\Bigone\Request;
 
 class Privates extends Request
 {
+    protected $authorization=true;
+
     /*
      * GET https://big.one/api/contract/v2/accounts
      * */
@@ -26,6 +28,7 @@ class Privates extends Request
         $this->type='GET';
         $this->path='/api/contract/v2/orders';
         if(isset($data['id'])) $this->path.='/'.$data['id'];
+        unset($data['id']);
 
         $this->data=$data;
         return $this->exec();
@@ -47,6 +50,8 @@ class Privates extends Request
     public function deleteOrders(array $data=[]){
         $this->type='GET';
         $this->path='/api/contract/v2/orders/'.$data['id'];
+        unset($data['id']);
+
         $this->data=$data;
         return $this->exec();
     }
@@ -107,6 +112,8 @@ class Privates extends Request
     public function putPositionsMargin(array $data=[]){
         $this->type='PUT';
         $this->path='/api/contract/v2/positions/'.$data['symbol'].'/margin';
+        unset($data['symbol']);
+
         $this->data=$data;
         return $this->exec();
     }
@@ -117,6 +124,7 @@ class Privates extends Request
     public function putPositionsRiskLimit(array $data=[]){
         $this->type='PUT';
         $this->path='/api/contract/v2/positions/'.$data['symbol'].'/risk-limit';
+        unset($data['symbol']);
         $this->data=$data;
         return $this->exec();
     }

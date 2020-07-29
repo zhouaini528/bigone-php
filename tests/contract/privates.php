@@ -3,13 +3,13 @@
  * @author lin <465382251@qq.com>
  * */
 
-use Lin\Bigone\BigoneSpotV2;
+use Lin\Bigone\BigoneContract;
 
 require __DIR__ .'../../../vendor/autoload.php';
 
 include 'key_secret.php';
 
-$bigone=new BigoneSpotV2($key,$secret);
+$bigone=new BigoneContract($key,$secret);
 
 //You can set special needs
 $bigone->setOptions([
@@ -29,10 +29,53 @@ $bigone->setOptions([
 ]);
 
 
+//Account
 try {
-    $result=$bigone->publics()->post();
+    $result=$bigone->privates()->getAccounts();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
+
+//Order
+try {
+    $result=$bigone->privates()->postOrders([
+        'symbol'=>'BTCUSD',
+        'type'=>'LIMIT',
+        'side'=>'BUY',
+        'size'=>'0.1',
+        'price'=>'5000',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->getOrders([
+        'id'=>'xxxxxxxxxxx',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->deleteOrders([
+        'id'=>'xxxxxxxxxxx'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+//get order list
+try {
+    $result=$bigone->privates()->getOrders();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+
 ?>

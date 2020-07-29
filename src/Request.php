@@ -30,6 +30,8 @@ class Request
 
     protected $options=[];
 
+    protected $authorization=false;
+
     public function __construct(array $data)
     {
         $this->key=$data['key'] ?? '';
@@ -88,8 +90,9 @@ class Request
     protected function headers(){
         $this->headers= [
             'Content-Type'=>'application/json',
-            'Authorization'=>' Bearer '.$this->signature,
         ];
+
+        if($this->authorization) $this->headers['Authorization']=' Bearer '.$this->signature;
     }
 
     /**
@@ -120,8 +123,8 @@ class Request
 
         $url=$this->host.$this->path;
 
-        if($this->type=='POST') $this->options['body']=json_encode($this->data);
-        else $url.='?'.http_build_query($this->data);
+        if($this->type=='GET') $url.= empty($this->data) ? '' : '?'.http_build_query($this->data);
+        else $this->options['body']=json_encode($this->data);
         /*echo $url.PHP_EOL;
         print_r($this->options);*/
         $response = $client->request($this->type, $url, $this->options);

@@ -13,7 +13,6 @@ class BigoneSpot
 {
     protected $key;
     protected $secret;
-    protected $passphrase;
     protected $host;
 
     protected $options=[];

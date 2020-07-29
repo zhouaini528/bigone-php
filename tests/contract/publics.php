@@ -3,11 +3,11 @@
  * @author lin <465382251@qq.com>
  * */
 
-use Lin\Bigone\BigoneSpotV2;
+use Lin\Bigone\BigoneContract;
 
 require __DIR__ .'../../../vendor/autoload.php';
 
-$bigone=new BigoneSpotV2();
+$bigone=new BigoneContract();
 
 //You can set special needs
 $bigone->setOptions([
@@ -27,16 +27,33 @@ $bigone->setOptions([
 ]);
 
 try {
-    $result=$bigone->publics()->ping();
+    $result=$bigone->publics()->getInstrumentsPrices();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
-die;
+
 try {
-    $result=$bigone->publics()->one();
+    $result=$bigone->publics()->getInstruments();
     print_r($result);
 }catch (\Exception $e){
     print_r(json_decode($e->getMessage(),true));
 }
+
+try {
+    $result=$bigone->publics()->getDepthSnapshot([
+        'symbol'=>'BTCUSD'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->getInstrumentsPrices();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
 ?>

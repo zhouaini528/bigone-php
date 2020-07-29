@@ -9,6 +9,8 @@ use Lin\Bigone\Request;
 
 class Privates extends Request
 {
+    protected $authorization=true;
+
     /**
      *GET /viewer/accounts
      * */
@@ -25,6 +27,8 @@ class Privates extends Request
     public function getAccount(array $data=[]){
         $this->type='GET';
         $this->path='/api/v3/viewer/accounts/'.$data['asset_symbol'];
+        unset($data['asset_symbol']);
+
         $this->data=$data;
         return $this->exec();
     }
@@ -45,6 +49,8 @@ class Privates extends Request
     public function getOrder(array $data=[]){
         $this->type='GET';
         $this->path='/api/v3/viewer/orders/'.$data['id'];
+        unset($data['id']);
+
         $this->data=$data;
         return $this->exec();
     }
@@ -75,6 +81,8 @@ class Privates extends Request
     public function postOrdersCancel(array $data=[]){
         $this->type='POST';
         $this->path='/api/v3/viewer/orders/'.$data['id'].'/cancel';
+        unset($data['id']);
+
         $this->data=$data;
         return $this->exec();
     }
@@ -135,6 +143,8 @@ class Privates extends Request
     public function getAssetsAddress(array $data=[]){
         $this->type='GET';
         $this->path='/api/v3/viewer/assets/'.$data['asset_symbol'].'/address';
+        unset($data['asset_symbol']);
+
         $this->data=$data;
         return $this->exec();
     }

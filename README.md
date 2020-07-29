@@ -65,3 +65,211 @@ $gate->setOptions([
 ]);
 ```
 
+### Spot Public API
+
+```php
+$bigone=new BigoneSpot();
+try {
+    $result=$bigone->publics()->ping();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->ticker([
+        'asset_pair_name'=>'BTC-USDT'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->depth([
+        'asset_pair_name'=>'BTC-USDT'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->trades([
+        'asset_pair_name'=>'BTC-USDT'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->candles([
+        'asset_pair_name'=>'BTC-USDT',
+        'period'=>'day1'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+```
+
+### Spot Privates API
+
+```php
+$bigone=new BigoneSpot($key,$secret);
+//Account
+try {
+    $result=$bigone->privates()->getAccounts();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->getAccount([
+        'asset_symbol'=>'BTC'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+//Order
+try {
+    $result=$bigone->privates()->postOrders([
+        'asset_pair_name'=>'BTC-USDT',
+        'side'=>'BID',
+        'price'=>'5000',
+        'amount'=>'1',
+        'type'=>'LIMIT'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->getOrders([
+        'asset_pair_name'=>'BTC-USDT',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->getOrder([
+        'id'=>'xxxxxxxxxxx',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->postOrdersCancel([
+        'id'=>'xxxxxxxxxxx',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+```
+
+[More Test](https://github.com/zhouaini528/gitone-php/tree/master/tests/spot)
+
+[More Api](https://github.com/zhouaini528/gitone-php/tree/master/src/Api/Spot)
+
+
+### Contract Public API
+
+```php
+$bigone=new BigoneContract();
+
+try {
+    $result=$bigone->publics()->getInstrumentsPrices();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->getInstruments();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->getDepthSnapshot([
+        'symbol'=>'BTCUSD'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->publics()->getInstrumentsPrices();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+```
+
+### Contract Privates API
+
+```php
+//Account
+try {
+    $result=$bigone->privates()->getAccounts();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+//Order
+try {
+    $result=$bigone->privates()->postOrders([
+        'symbol'=>'BTCUSD',
+        'type'=>'LIMIT',
+        'side'=>'BUY',
+        'size'=>'0.1',
+        'price'=>'5000',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->getOrders([
+        'id'=>'xxxxxxxxxxx',
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+try {
+    $result=$bigone->privates()->deleteOrders([
+        'id'=>'xxxxxxxxxxx'
+    ]);
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+
+//get order list
+try {
+    $result=$bigone->privates()->getOrders();
+    print_r($result);
+}catch (\Exception $e){
+    print_r(json_decode($e->getMessage(),true));
+}
+```
+
+[More Test](https://github.com/zhouaini528/gitone-php/tree/master/tests/contract)
+
+[More Api](https://github.com/zhouaini528/gitone-php/tree/master/src/Api/Contract)

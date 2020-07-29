@@ -5,20 +5,13 @@
 
 namespace Lin\Bigone;
 
-
-
-use Lin\Bigone\Api\Future\Account;
-use Lin\Bigone\Api\Future\Contract;
-use Lin\Bigone\Api\Future\Market;
-use Lin\Bigone\Api\Future\My;
-use Lin\Bigone\Api\Future\Order;
-use Lin\Bigone\Api\Future\Position;
+use Lin\Bigone\Api\Contract\Privates;
+use Lin\Bigone\Api\Contract\Publics;
 
 class BigoneContract
 {
     protected $key;
     protected $secret;
-    protected $passphrase;
     protected $host;
 
     protected $options=[];
@@ -51,42 +44,14 @@ class BigoneContract
     /**
      *
      * */
-    function account(){
-        return new Account($this->init());
+    function privates(){
+        return new Privates($this->init());
     }
 
     /**
      *
      * */
-    function contract(){
-        return new Contract($this->init());
-    }
-
-    /**
-     *
-     * */
-    function market(){
-        return new Market($this->init());
-    }
-
-    /**
-     *
-     * */
-    function my(){
-        return new My($this->init());
-    }
-
-    /**
-     *
-     * */
-    function order(){
-        return new Order($this->init());
-    }
-
-    /**
-     *
-     * */
-    function position(){
-        return new Position($this->init());
+    function publics(){
+        return new Publics($this->init());
     }
 }
