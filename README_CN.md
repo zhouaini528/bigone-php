@@ -40,7 +40,7 @@
 
 #### 安装方式
 ```
-composer require linwj/gate
+composer require linwj/bigone
 ```
 
 支持更多的请求设置
@@ -177,9 +177,9 @@ try {
 }
 ```
 
-[More Test](https://github.com/zhouaini528/gitone-php/tree/master/tests/spot)
+[More Test](https://github.com/zhouaini528/bitone-php/tree/master/tests/spot)
 
-[More Api](https://github.com/zhouaini528/gitone-php/tree/master/src/Api/Spot)
+[More Api](https://github.com/zhouaini528/bitone-php/tree/master/src/Api/Spot)
 
 
 ### 合约共有访问 API
@@ -270,8 +270,8 @@ try {
 }
 ```
 
-[More Test](https://github.com/zhouaini528/gitone-php/tree/master/tests/contract)
+[More Test](https://github.com/zhouaini528/bitone-php/tree/master/tests/contract)
 
-[More Api](https://github.com/zhouaini528/gitone-php/tree/master/src/Api/Contract)
+[More Api](https://github.com/zhouaini528/bitone-php/tree/master/src/Api/Contract)
 
 

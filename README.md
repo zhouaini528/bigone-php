@@ -40,7 +40,7 @@ Most of the interface is now complete, and the user can continue to extend it ba
 
 #### Installation
 ```
-composer require linwj/gate
+composer require linwj/bigone
 ```
 
 Support for more request Settings
@@ -177,9 +177,9 @@ try {
 }
 ```
 
-[More Test](https://github.com/zhouaini528/gitone-php/tree/master/tests/spot)
+[More Test](https://github.com/zhouaini528/bigone-php/tree/master/tests/spot)
 
-[More Api](https://github.com/zhouaini528/gitone-php/tree/master/src/Api/Spot)
+[More Api](https://github.com/zhouaini528/bitone-php/tree/master/src/Api/Spot)
 
 
 ### Contract Public API
@@ -270,6 +270,6 @@ try {
 }
 ```
 
-[More Test](https://github.com/zhouaini528/gitone-php/tree/master/tests/contract)
+[More Test](https://github.com/zhouaini528/bitone-php/tree/master/tests/contract)
 
-[More Api](https://github.com/zhouaini528/gitone-php/tree/master/src/Api/Contract)
+[More Api](https://github.com/zhouaini528/bitone-php/tree/master/src/Api/Contract)
